@@ -22,10 +22,10 @@ jobs:
       - name: Frontend Dockerfile build
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/dockerfrontend .
+
       - name: Push Frontend Docker image
         run: |
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/dockerfrontend
-  
 
   deploy:
     needs: build_and_push
@@ -43,8 +43,6 @@ jobs:
             fi
             if [ "$(sudo docker images -q ${{ secrets.DOCKERHUB_USERNAME }}/dockerfrontend)" ]; then
               sudo docker rmi -f ${{ secrets.DOCKERHUB_USERNAME }}/dockerfrontend
-            fi          
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dockerfrontend         
+            fi
+            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dockerfrontend
             sudo docker run -d -p 80:80 --name dockerfrontend ${{ secrets.DOCKERHUB_USERNAME }}/dockerfrontend
-            
-      
