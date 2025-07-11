@@ -46,3 +46,4 @@ jobs:
             fi
             sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dockerfrontend
             sudo docker run -d -p 80:80 --name dockerfrontend ${{ secrets.DOCKERHUB_USERNAME }}/dockerfrontend
+
