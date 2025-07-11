@@ -36,7 +36,7 @@ jobs:
         with:
           username: ubuntu
           host: ${{ secrets.LIVE_SERVER_IP }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          key: ${{ secrets.SSH_KEY }}
           script: |
             if [ "$(sudo docker ps -a -q -f name=dockerfrontend)" ]; then
               sudo docker rm -f dockerfrontend
