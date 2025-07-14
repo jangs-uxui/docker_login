@@ -3,6 +3,7 @@ import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import {setToken} from "./store";
 import apiClient from "./api/axiosInstance";
+import {Link} from "react-router-dom";
 
 function Login({ onLogin }) {
     const [username, setUsername] = useState("");
@@ -44,6 +45,17 @@ function Login({ onLogin }) {
         }
     };
 
+    // 소셜로그인
+    const handleNaverLogin = () => {
+        window.location.href = "/api/naver";
+    }
+    const handleGoogleLogin = () => {
+        window.location.href = "/api/google";
+    }
+    const handleKakaoLogin = () => {
+        window.location.href = "/api/kakao";
+    }
+
     return (
         <div>
             <form>
@@ -65,6 +77,14 @@ function Login({ onLogin }) {
                 <button type="button" name="join" onClick={handleJoin}>Join</button>
             </form>
             {message && <p>{message}</p>}
+
+            <h3>소셜로그인</h3>
+            <button onClick={handleNaverLogin}>네이버로 로그인</button>
+            <button onClick={handleGoogleLogin}>구글로 로그인</button>
+            <button onClick={handleKakaoLogin}>카카오로 로그인</button> <br/>
+            <Link to={"/api/naver"}>네이버로 로그인 (링크)</Link>
+            <Link to={"/api/google"}>구글버로 로그인 (링크)</Link>
+            <Link to={"/api/kakao"}>카카오로 로그인 (링크)</Link>
         </div>
     );
 }
