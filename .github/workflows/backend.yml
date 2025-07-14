@@ -70,7 +70,7 @@ jobs:
             -e GOOGLE_CLIENT_ID=${{secrets.GOOGLE_CLIENT_ID}} \
             -e GOOGLE_CLIENT_SECRET=${{secrets.GOOGLE_CLIENT_SECRET}} \
             -e NAVER_CLIENT_ID=${{secrets.NAVER_CLIENT_ID}} \
-            -e NAVER_CLIENT_SECRET=${{secrets.NAVER_CLIENT_SECRET}} \ 
-            -e KAKAO_CLIENT_ID=${{secrets.KAKAO_CLIENT_ID}} \ 
+            -e NAVER_CLIENT_SECRET=${{secrets.NAVER_CLIENT_SECRET}} \
+            -e KAKAO_CLIENT_ID=${{secrets.KAKAO_CLIENT_ID}} \
             -e KAKAO_CLIENT_SECRET=${{secrets.KAKAO_CLIENT_SECRET}} \
-                ${{ secrets.DOCKERHUB_USERNAME }}/dockerbackend
+            ${{ secrets.DOCKERHUB_USERNAME }}/dockerbackend
